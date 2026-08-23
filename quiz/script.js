@@ -1,22 +1,40 @@
 let cardQuestion = document.getElementById("cardQuestion")
 let span = document.createElement("span")
 let nextQuestionButton = document.getElementById("nextQuestion")
+let previousQuestionButton = document.getElementById("previousQuestion")
+let showAnswerButton = document.getElementById("showAnswer")
 let cardsData = [
-    question1 = "Hello there",
-    question2 = "Hell nah there",
-    question3 = "yo yo yo"
+    question1 = {
+        question : "Hello there",
+        answer : "answer1"
+    },
+    question2 = {
+        question : "Hell nah there",
+        answer : "answer2"
+    },
+    question3 = {
+        question : "yo yo yo",
+        answer : "answer3"
+    }
 ]
 
 nextQuestionButton.addEventListener("click", function(){
-    if(currentQuestion > cardsData.length-2){
+    if(currentQuestionIndex > cardsData.length-2){
         return
     }
-    currentQuestion++
-    span.textContent = cardsData[currentQuestion]
-    console.log(currentQuestion)
+    currentQuestionIndex++
+    span.textContent = cardsData[currentQuestionIndex].question
 })
+previousQuestionButton.addEventListener("click",function(){
+    if(currentQuestionIndex <= 0){
+        return
+    }
+    currentQuestionIndex--
+    span.textContent = cardsData[currentQuestionIndex].question
 
-let currentQuestion = 0
+})
+showAnswerButton.addEventListener()
+let currentQuestionIndex = 0
 cardQuestion.append(span)
 
-span.textContent = cardsData[currentQuestion]
+span.textContent = cardsData[currentQuestionIndex].question
