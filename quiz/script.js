@@ -33,7 +33,7 @@ previousQuestionButton.addEventListener("click",function(){
     span.textContent = cardsData[currentQuestionIndex].question
 
 })
-showAnswerButton.addEventListener()
+
 let currentQuestionIndex = 0
 cardQuestion.append(span)
 
