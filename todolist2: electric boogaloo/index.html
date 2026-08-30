@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/todolist2: electric boogaloo/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+    <h1>Testing</h1>
+    <button id="Test">Add Todos</button></nav>
+    <div id="container">
+        <p>Add New Notes</p>
+        <p>Title</p>
+        <input type="text" placeholder="Title" id="titleInput">
+        <p>Content</p>
+        <input type="text" placeholder="Content" id="contentInput"><br>
+        <div id="button">
+        <button id="cancelButton">Cancel</button><button id="saveButton">Save</button></div>
+    </div>
+
+    
+    <div id="todos">
+        <template id="boxTemplate">
+            <div class="boxes">
+                <p style="font-weight: bold;">Content Title:</p>
+                <p id="contentTitle"></p><br>
+                <p style="font-weight: bolder;">Content Description:</p>
+                <p id="contentText"></p>
+            </div>
+        </template>
+    </div>
+    <script src="/todolist2: electric boogaloo/script.js"></script>
+</body>
+</html>

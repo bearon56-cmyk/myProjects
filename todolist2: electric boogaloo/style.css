@@ -1,0 +1,80 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100dvh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+}
+#container{
+    position: absolute;
+    align-self: center;
+    display: flex;
+    visibility: hidden;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: 1px solid black;
+    gap: 32px;
+    height: 350px;
+    width: 300px;
+    min-width: 25%;
+    flex-shrink: 1;
+    border-radius: 10px;
+    background-color: rgb(177, 196, 206);
+    box-shadow: 0 5px 10px;
+    z-index: 1;
+}
+#container *{
+    margin-left: 15px;
+    min-height: 0;
+}
+#contentInput{
+    height: 25%;
+    width: 90%;
+}
+#button{
+    display: flex;
+    margin-top: auto;
+    margin-left: 0;
+    width: 65%;
+    flex-shrink: 0;
+    flex-direction: row;
+    align-self: flex-end;
+}
+#cancelButton, #saveButton{
+    flex-grow: 1;
+}
+#titleInput{
+    height: 25%;
+    width: 90%;
+    margin-top: -20px;
+}
+nav{
+    align-self: flex-start;
+    position: static;
+}
+input{
+    border-radius: 10px;
+}
+.boxes{
+    width: 100%;
+    border: 1px solid black;
+    background-image: linear-gradient(to right, rgb(177, 196, 206), rgb(139, 199, 231));
+}
+#todos{
+
+    display: grid;
+    overflow-wrap: break-word;
+    text-align: center;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    padding: 20px;
+    z-index: 0;
+    gap: 10px;
+
+}
