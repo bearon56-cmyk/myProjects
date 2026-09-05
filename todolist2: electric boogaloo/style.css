@@ -65,7 +65,7 @@ input{
 .boxes{
     width: 100%;
     border: 1px solid black;
-    background-image: linear-gradient(to right, rgb(177, 196, 206), rgb(139, 199, 231));
+    background-color: rgb(177, 196, 206);
 }
 #todos{
 
@@ -78,4 +78,7 @@ input{
     z-index: 0;
     gap: 10px;
 
+}
+nav{
+    text-align: center;
 }

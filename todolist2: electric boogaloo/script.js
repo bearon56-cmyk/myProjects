@@ -1,5 +1,5 @@
 let addButton = document.getElementById("addButton")
-let container = document.getElementById("container")
+let userForm = document.getElementById("container")
 let todos = document.getElementById("todos")
 let boxTemplateContent = document.getElementById("boxTemplate").content
 let saveButton = document.getElementById("saveButton")
@@ -13,11 +13,11 @@ let currentContainer = null
 function handleVisibility(){
     containerVisibility = !containerVisibility
     if(!containerVisibility){
-    container.style.visibility = "visible"
+    userForm.style.visibility = "visible"
     todos.style.filter = "blur(5px)"
     }
     else{
-        container.style.visibility = "hidden"   
+        userForm.style.visibility = "hidden"   
         todos.style.filter = "none"    
     }
 }
@@ -26,6 +26,7 @@ addButton.addEventListener("click", function(){
     saveButton.addEventListener("click", saveBox)
     saveModeAddTodos = true
     saveModeModifyTodos = false
+    userForm.querySelector("p").textContent = "Add new notes"
     handleVisibility()
 })
 
@@ -36,18 +37,19 @@ function onContainerClick(container) {
     saveModeModifyTodos = true
     titleInput.value = this.dataset.myTitle
     currentContainer = this
+    userForm.querySelector("p").textContent = "Modify todos"
     handleVisibility()
   })
 }
 
 function saveBox(){
     let boxTemplate = boxTemplateContent.cloneNode(true)
-    let container2 = boxTemplate.querySelector(".container2")
+    let todosContainer = boxTemplate.querySelector(".todosContainer")
     boxTemplate.querySelector("#contentTitle").textContent = titleInput.value
     boxTemplate.querySelector("#contentText").textContent = contentInput.value
-    container2.dataset.myTitle = titleInput.value
+    todosContainer.dataset.myTitle = titleInput.value
 
-    onContainerClick(container2)
+    onContainerClick(todosContainer)
 
     if(saveModeAddTodos == true){
      todos.append(boxTemplate);       
