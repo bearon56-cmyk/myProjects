@@ -55,23 +55,25 @@ body{
     width: 90%;
     margin-top: -20px;
 }
-nav{
-    align-self: flex-start;
-    position: static;
-}
+
 input{
     border-radius: 10px;
 }
 .boxes{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     width: 100%;
+    padding-top: 10px;
+    border-radius: 10px;
     border: 1px solid black;
     background-color: rgb(177, 196, 206);
 }
 #todos{
-
     display: grid;
     overflow-wrap: break-word;
     text-align: center;
+    align-items: stretch;
     width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     padding: 20px;
@@ -80,5 +82,17 @@ input{
 
 }
 nav{
-    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#addButton{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    height: 40px;
+    min-width: 300px;
+    max-width: 25%;
 }

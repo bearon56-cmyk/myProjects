@@ -9,7 +9,7 @@ let containerVisibility = true
 let saveModeAddTodos = true
 let saveModeModifyTodos = false
 let currentContainer = null
-
+let cancelButton = document.getElementById("cancelButton")
 function handleVisibility(){
     containerVisibility = !containerVisibility
     if(!containerVisibility){
@@ -50,15 +50,21 @@ function saveBox(){
     todosContainer.dataset.myTitle = titleInput.value
 
     onContainerClick(todosContainer)
-
+    if(titleInput.value == "" || contentInput == ""){
+        return
+    }
     if(saveModeAddTodos == true){
      todos.append(boxTemplate);       
     }
     if(saveModeModifyTodos == true && currentContainer){
-        console.log(titleInput.value)
         currentContainer.querySelector("#contentTitle").textContent = titleInput.value
         currentContainer.querySelector("#contentText").textContent = contentInput.value
         currentContainer.dataset.myTitle = titleInput.value
     }
 
 }
+
+cancelButton.addEventListener("click", function(){
+    containerVisibility = false
+    handleVisibility()
+})
