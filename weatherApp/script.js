@@ -6,7 +6,7 @@ let submit = document.getElementById("submit")
 
 
 
-
+//fetch
 async function getWeatherData() {
     try {
         let url =  `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${userLocation.value}/today?key=K4SKGDNJN3W5H38EB8BDXYJ7F`
