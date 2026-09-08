@@ -7,8 +7,22 @@
     <link rel="stylesheet" href="/weatherApp/style.css">
 </head>
 <body>
-    <p>Current windspeed today:</p>
-    <p id="windspeed">0.0</p>
+    <p id="state" style="visibility: hidden;">Wait a second</p>
+    <div id="dataContainer">
+        <div style="text-align: center;">
+            <img src="/weatherApp/images/wind2.png" alt="" id="icon">
+            <p>Current windspeed:</p>
+            <p id="windspeed">0.0 MPH</p>
+        </div>
+
+        <div style="text-align: center;">
+            <img src="/weatherApp/images/temperature2.png" alt="" id="icon">
+            <p>Current temperature:</p>
+            <p id="temperature">0.0 F</p>
+        </div>
+
+
+    </div>
     <input type="text" id="userLocation" placeholder="Input your location in">
     <button type="submit" id="submit">Submit</button>
     <script src="/weatherApp/script.js"></script>
