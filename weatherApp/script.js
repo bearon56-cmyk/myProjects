@@ -6,7 +6,8 @@ let submit = document.getElementById("submit")
 let temperatureText = document.getElementById("temperature")
 let temperature;
 let loading = document.getElementById('state')
-
+let body = document.querySelector("body")
+let tempFeel;
 //fetch
 async function getWeatherData() {
     try {
@@ -38,6 +39,18 @@ submit.addEventListener("click", async function(){
         return
     }
     await getWeatherData()
+    if(temperature < 32){
+        body.style.backgroundColor = "rgb(0, 119, 190)"
+        tempFeel = "cold"
+    }
+    else if(temperature < 68){
+        body.style.backgroundColor = "rgb(255, 165, 0)"
+        tempFeel = "warm"
+    }
+    else if(temperature >= 69){
+        body.style.backgroundColor = "rgb(255, 69, 0)"
+        tempFeel = "hot"
+    }
     windSpeedText.textContent = `${windSpeed} MPH`
-    temperatureText.textContent = `${temperature} F`
+    temperatureText.textContent = `${temperature} F, this is ${tempFeel}`
 })

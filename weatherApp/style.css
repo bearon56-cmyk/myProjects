@@ -13,6 +13,8 @@ body{
     align-items: center;
     background-color: rgb(241, 174, 96);
     color: white;
+
+    transition: background-color 0.5s ease-in-out;
 }
 
 #dataContainer{
