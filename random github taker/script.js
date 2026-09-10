@@ -1,12 +1,13 @@
-
-
+let main = document.querySelector("main")
 let text = document.getElementById("text")
 let userProgramLang = document.getElementById("userProgramLanguage")
 let submit = document.getElementById("submit")
 let loading = document.getElementById("loading")
-
 let languageDatalist = document.getElementById("language")
 let languageApi = "https://raw.githubusercontent.com/nilbuild/githunt/refs/heads/master/src/components/filters/language-filter/languages.json"
+
+addOptions()
+submit.addEventListener("click", takeGithubRepo)
 
 async function addOptions() {
     try {
@@ -23,10 +24,6 @@ async function addOptions() {
         console.error(error)
     }
 }
-addOptions()
-
-submit.addEventListener("click", takeGithubRepo)
-
 
 async function takeGithubRepo() {
     let randomNumber = Math.floor(Math.random() * 100) + 1
@@ -35,22 +32,25 @@ async function takeGithubRepo() {
     let repoName;
     let repoDecription;
     try {
+        loading.style.filter = "none"
         loading.style.visibility = "visible"
+        main.style.filter = "blur(5px)"
+
+
         const response = await fetch(url)
         const data = await response.json()
 
 
         repoName = data.items[0].full_name
         repoDecription = data.items[0].description
-
         text.textContent = repoName
-        console.log(repoName)
-        console.log(repoDecription)
     } catch (error) {
         console.error(error)
     }
         finally{
         loading.style.visibility = "hidden"
+        main.style.filter = "none"
+
     }
 }
 
