@@ -1,16 +1,26 @@
-let main = document.querySelector("main")
-let text = document.getElementById("text")
+let userInputsBox = document.querySelector("#inputs")
+let repoNameText = document.getElementById("repoNameText")
 let userProgramLang = document.getElementById("userProgramLanguage")
 let submit = document.getElementById("submit")
 let loading = document.getElementById("loading")
-let languageDatalist = document.getElementById("language")
-let languageApi = "https://raw.githubusercontent.com/nilbuild/githunt/refs/heads/master/src/components/filters/language-filter/languages.json"
+let repoCreatorText = document.getElementById("repoCreator")
+let repoDescriptionText = document.getElementById("repoDescription")
+let container3 = document.getElementById("container3")
 
 addOptions()
-submit.addEventListener("click", takeGithubRepo)
+submit.addEventListener("click", function(){
+    if(userProgramLang.value == "" || userProgramLang.value == " "){
+        return
+    }
+    else{
+        takeGithubRepo()
+    }
+})
 
 async function addOptions() {
     try {
+        let languageDatalist = document.getElementById("language")
+        let languageApi = "https://raw.githubusercontent.com/nilbuild/githunt/refs/heads/master/src/components/filters/language-filter/languages.json"
         const response = await fetch(languageApi)
         const data = await response.json()
 
@@ -30,27 +40,39 @@ async function takeGithubRepo() {
 
     const url = `https://api.github.com/search/repositories?q=${userProgramLang.value}&page=${randomNumber}&per_page=1`
     let repoName;
-    let repoDecription;
+    let repoDescription;
+    let repoCreator;
+
     try {
         loading.style.filter = "none"
         loading.style.visibility = "visible"
-        main.style.filter = "blur(5px)"
+        userInputsBox.style.filter = "blur(5px)"
 
 
         const response = await fetch(url)
         const data = await response.json()
 
 
-        repoName = data.items[0].full_name
-        repoDecription = data.items[0].description
-        text.textContent = repoName
+        updateText(repoName, repoDescription, repoCreator, data)
+        
     } catch (error) {
         console.error(error)
     }
         finally{
         loading.style.visibility = "hidden"
-        main.style.filter = "none"
+        userInputsBox.style.filter = "none"
 
     }
 }
 
+    function updateText(repoName, repoDescription, repoCreator, data) {
+        repoCreator = data.items[0].owner.login
+        repoCreatorText.textContent = `Creator: ${repoCreator}`
+
+        repoName = data.items[0].full_name
+        repoNameText.textContent = repoName
+
+        repoDescription = data.items[0].description
+        repoDescriptionText.textContent = repoDescription
+
+}

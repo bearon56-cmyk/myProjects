@@ -7,17 +7,44 @@
     <link rel="stylesheet" href="/random github taker/style.css">
 </head>
 <body>
-    <h2 id="loading">Loading</h2>
 
     <main>
-    <h2 id="text"></h2>
+
+            <h2 id="repoNameText"></h2>
+
+        <div id="container1">
+
+
+            <div id="container2">
+                <div></div>
+
+                <p id="repoCreator">Creator:</p>
+                <hr>
+                <p>Repo description:</p>
+                <p id="repoDescription" style="font-size: small;"></p>
+            </div>
+
+             <div id="container3">
+                <p>Star count: <br> <p id="starCounts"></p> </p>
+                <hr>
+                <p style="font-size: smaller;">Number of forks: <br> <p id="forkCounts"></p> </p>
+                <hr>
+                <p>Open issues: <br> <p id="openIssuesCount"></p> </p>
+             </div>
+        </div>
+
+    </main>
+
+    <h2 id="loading">Loading</h2>
+    <div id="inputs">
+
         <div>
             <input type="text" placeholder="Enter language" list="language" id="userProgramLanguage">
             <button type="submit" id="submit">Submit</button>
         </div>
         <datalist id="language"></datalist>
-    </main>
-
+    </div>
+    
 
     <script src="/random github taker/script.js"></script>
 </body>
