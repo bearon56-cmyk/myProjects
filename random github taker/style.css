@@ -39,8 +39,9 @@ main{
 }
 
 #container2{
-    width: 230px;
-    height: 100px;
+    max-width: 80dvw;
+    width: 380px;
+    height: 120px;
     border: 1px solid black;
     border-radius: 10px;
     overflow-wrap: break-word;
@@ -49,6 +50,7 @@ main{
 }
 
 #container3{
+    min-width: 26%;
     width: 30%;
     height: 100%;
     position: relative;
@@ -61,7 +63,6 @@ main{
     display: flex;
     flex-direction: row;
     background-color: brown;
-
 }
 
 #repoNameText{
