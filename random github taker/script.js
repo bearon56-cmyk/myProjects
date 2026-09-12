@@ -6,6 +6,9 @@ let loading = document.getElementById("loading")
 let repoCreatorText = document.getElementById("repoCreator")
 let repoDescriptionText = document.getElementById("repoDescription")
 let container3 = document.getElementById("container3")
+let starCountText = document.getElementById("starCounts")
+let forkCountsText = document.getElementById("forkCounts")
+let OpenIssuesCountText = document.getElementById("openIssuesCount")
 
 addOptions()
 submit.addEventListener("click", function(){
@@ -14,6 +17,7 @@ submit.addEventListener("click", function(){
     }
     else{
         takeGithubRepo()
+        repoNameText.style.color = "black"
     }
 })
 
@@ -42,6 +46,9 @@ async function takeGithubRepo() {
     let repoName;
     let repoDescription;
     let repoCreator;
+    let starCount;
+    let forks;
+    let openIssues;
 
     try {
         loading.style.filter = "none"
@@ -53,7 +60,7 @@ async function takeGithubRepo() {
         const data = await response.json()
 
 
-        updateText(repoName, repoDescription, repoCreator, data)
+        updateText(repoName, repoDescription, repoCreator, starCount, forks, openIssues, data)
         
     } catch (error) {
         console.error(error)
@@ -65,14 +72,27 @@ async function takeGithubRepo() {
     }
 }
 
-    function updateText(repoName, repoDescription, repoCreator, data) {
-        repoCreator = data.items[0].owner.login
+    function updateText(repoName, repoDescription, repoCreator, starCount, forks, openIssues, data) {
+        let currentItem = data.items[0]
+        
+        repoCreator = currentItem.owner.login
         repoCreatorText.textContent = `Creator: ${repoCreator}`
 
-        repoName = data.items[0].full_name
+        repoName = currentItem.full_name
         repoNameText.textContent = repoName
+        repoNameText.style.color = "orange"
+        repoNameText.href = currentItem.html_url
 
-        repoDescription = data.items[0].description
+        repoDescription = currentItem.description
         repoDescriptionText.textContent = repoDescription
+
+        starCount = currentItem.stargazers_count
+        starCountText.textContent = starCount
+
+        forks = currentItem.forks
+        forkCountsText.textContent = forks
+
+        openIssues = currentItem.open_issues
+        OpenIssuesCountText.textContent = openIssues
 
 }

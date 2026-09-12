@@ -46,7 +46,7 @@ main{
 }
 
 #container3{
-    width: 25%;
+    width: 30%;
     height: 100%;
     position: relative;
     border: 1px solid black;
@@ -58,4 +58,14 @@ main{
     display: flex;
     flex-direction: row;
     padding-top:10px ;
+}
+
+#repoNameText{
+    color: black;
+    transition: 2s;
+}
+
+#container3 p{
+    max-height: 5px; 
+    min-height: 10px;
 }
