@@ -87,7 +87,8 @@ async function takeGithubRepo() {
         forks, 
         openIssues, 
         data
-        ) {
+        ) 
+        {
         let currentItem = data.items[0]
         repoCreator = currentItem.owner.login
         repoCreatorText.textContent = `Creator: ${repoCreator}`
@@ -97,11 +98,11 @@ async function takeGithubRepo() {
         repoNameText.style.color = "orange"
         repoNameText.href = currentItem.html_url
         
+        repoDescription = currentItem.description
         if (repoDescription == ""){
             repoDescriptionText.textContent = "No description"
         }
         else{
-            repoDescription = currentItem.description
             repoDescriptionText.textContent = repoDescription  
         }
 
