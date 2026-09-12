@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Papyrus", "Curlz MT", "Harrington", fantasy;
 }
 
 body{
@@ -11,7 +12,8 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    background-color: rgb(189, 82, 82);
+    color: white;
 
 }
 #inputs{
@@ -43,6 +45,7 @@ main{
     border-radius: 10px;
     overflow-wrap: break-word;
     overflow: scroll;
+    border-radius: 1px;
 }
 
 #container3{
@@ -57,7 +60,8 @@ main{
 #container1{
     display: flex;
     flex-direction: row;
-    padding-top:10px ;
+    background-color: brown;
+
 }
 
 #repoNameText{
@@ -68,4 +72,12 @@ main{
 #container3 p{
     max-height: 5px; 
     min-height: 10px;
+}
+
+#userProgramLanguage{
+    width: 225px;
+    box-shadow:0 5px 10px rgb(143, 37, 37);
+    border-radius: 3px;
+    height: 25px;
+    padding-left: 3px;
 }

@@ -60,7 +60,14 @@ async function takeGithubRepo() {
         const data = await response.json()
 
 
-        updateText(repoName, repoDescription, repoCreator, starCount, forks, openIssues, data)
+        updateText(
+            repoName, 
+            repoDescription, 
+            repoCreator, 
+            starCount, 
+            forks, 
+            openIssues, 
+            data)
         
     } catch (error) {
         console.error(error)
@@ -72,9 +79,16 @@ async function takeGithubRepo() {
     }
 }
 
-    function updateText(repoName, repoDescription, repoCreator, starCount, forks, openIssues, data) {
+    function updateText(
+        repoName,
+        repoDescription, 
+        repoCreator, 
+        starCount, 
+        forks, 
+        openIssues, 
+        data
+        ) {
         let currentItem = data.items[0]
-        
         repoCreator = currentItem.owner.login
         repoCreatorText.textContent = `Creator: ${repoCreator}`
 
@@ -82,9 +96,15 @@ async function takeGithubRepo() {
         repoNameText.textContent = repoName
         repoNameText.style.color = "orange"
         repoNameText.href = currentItem.html_url
+        
+        if (repoDescription == ""){
+            repoDescriptionText.textContent = "No description"
+        }
+        else{
+            repoDescription = currentItem.description
+            repoDescriptionText.textContent = repoDescription  
+        }
 
-        repoDescription = currentItem.description
-        repoDescriptionText.textContent = repoDescription
 
         starCount = currentItem.stargazers_count
         starCountText.textContent = starCount
@@ -94,5 +114,7 @@ async function takeGithubRepo() {
 
         openIssues = currentItem.open_issues
         OpenIssuesCountText.textContent = openIssues
+
+
 
 }
