@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav>
-    <h1>Do your thing</h1>
+    <h1 style="color: rgb(35, 47, 71);">Do your thing</h1>
     <button id="addButton">Add Todos</button></nav>
     <div id="container">
         <p>Add New Notes</p>
@@ -16,20 +16,24 @@
         <input type="text" placeholder="Title" id="titleInput">
         <p>Content</p>
         <input type="text" placeholder="Content" id="contentInput"><br>
+        
         <div id="button">
-        <button id="cancelButton">Cancel</button><button id="saveButton">Save</button></div>
+                <button id="cancelButton">Cancel</button><button id="saveButton">Save</button>
+            </div>
+            
+        </div>
     </div>
 
     
     <div id="todos">
         <template id="boxTemplate">
             <div class="todosContainer">
-            <div class="boxes">
                 <p style="font-weight: bold;">Content Title:</p>
                 <p id="contentTitle"></p><br>
                 <p style="font-weight: bolder;">Content Description:</p>
                 <p id="contentText"></p>
-                </div>
+
+                <button type="button" id="delete">X</button>
             </div>
         </template>
     </div>
