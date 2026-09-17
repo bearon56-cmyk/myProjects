@@ -4,13 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/quiz/style.css">
 </head>
 <body>
-    <div id="topContainer1">
-        <div id="topContainer2">
+
+    <div id="userQuestionContainer">
+        <p>Enter your flashcards question</p>
+        
+        <div>
+            <input type="text" id="userQuestionInput"> <button type="submit" id="submit">Enter</button>
+            <button type="button" id="accept">Accept quizes data?</button>
+        </div>
+
+    </div>
+    
+    <div id="userAnswerAndQuestion">
+        <p style="align-self: center;">User quizes</p>
+
+        <ol id="userPTagContainer">
+        </ol>
+
+        <template id="pTagTemplate">
+            <div id="userPTags">
+                <p id="userQuestion">Question:</p>
+                <p id="userAnswer">Answer:</p>
+            </div>  
+        </template>    
+
+
+
+    </div>
+
+    <div id="container1" style="display: none;">
+        <div id="container2">
     <h2>Flash Cards</h1>
-    <progress max="4" value="1"></progress></div>
+    <progress value="1"></progress></div>
     <div id="container">
     <div id="cardMain">
         <div id="cardQuestion"></div>
@@ -27,6 +55,6 @@
     
 
 </div>
-    <script src="/script.js"></script>
+    <script src="/quiz/script.js"></script>
 </body>
 </html>

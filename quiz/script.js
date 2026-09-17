@@ -6,28 +6,22 @@ let showAnswerButton = document.getElementById("showAnswer")
 let progress = document.querySelector("progress")
 let progressValue = progress.value
 let showAnswer = false 
+let button = document.getElementById("submit")
+let container1 = document.getElementById("container1")
 let currentQuestionIndex = 0
+let userQuestionInput = document.getElementById("userQuestionInput")
+let addAnswer = true
+let userPTagContainer =document.getElementById("userPTagContainer")
+let pTagTemplate = document.getElementById("pTagTemplate").content
+let accept = document.getElementById("accept")
+let userAnswerAndQuestion = document.getElementById("userAnswerAndQuestion")
+let userQuestionContainer = document.getElementById("userQuestionContainer")
 
-let cardsData = [
+let object = {}
 
-    {
-        question : "What is \"DRY\"",
-        answer : "Dont Repeat Yourself"
-    },
-    {
-        question : "What is the main 3 components of web developing as a beginner",
-        answer : "Html, CSS, JavaScript"
-    },
-    {
-        question : "I ran out of ideas for questions",
-        answer : "Still have no idea for questions"
-    },
-    {
-        question: "HAVE YOU EVER PLAYED FOOTBALL WITH YOU LIFE ON THE LINE???",
-        answer: "Yeah still no idea"
-    }
-    
-]
+let cardsData = [{question: 1, answer: 2}]
+
+progress.max = cardsData.length
 function cardsLoader(){
     progressValue = currentQuestionIndex + 1
     progress.value = progressValue
@@ -46,7 +40,7 @@ function cardsLoader(){
 showAnswerButton.addEventListener("click", function(){
 
     showAnswer = !showAnswer
-    if(showAnswer){
+    if(showAnswer == true){
         span.textContent = cardsData[currentQuestionIndex].answer
         showAnswerButton.textContent = "Show question"
     }else{
@@ -78,5 +72,40 @@ previousQuestionButton.addEventListener("click",function(){
 
 
 cardQuestion.append(span)
-
 span.textContent = cardsData[currentQuestionIndex].question
+
+
+
+button.addEventListener("click", () => {
+    addAnswer =! addAnswer
+    let template = pTagTemplate.cloneNode(true)
+    let userPTAGS = template.querySelector("#userPTags")
+    let userQuestion = userPTAGS.querySelector("#userQuestion")
+    let userAnswer = userPTAGS.querySelector("#userAnswer")
+    
+    if (addAnswer === false){
+        object = {}
+        object.question = userQuestionInput.value
+        userQuestionInput.value = ""
+    }
+    else{
+        object.answer = userQuestionInput.value
+        userQuestionInput.value = ""
+        cardsData.push(object)
+        console.log(cardsData.length);
+        progress.max = cardsData.length
+
+        cardsData.forEach(element => {
+            userAnswer.textContent = `Answer:${element.answer}`
+            userQuestion.textContent = `Question: ${element.question}`
+            userPTagContainer.append(template)
+        });
+
+    }
+})
+
+accept.addEventListener("click", () =>{
+    userAnswerAndQuestion.style.display = "none"
+    userQuestionContainer.style.display = "none"
+    container1.style.display = "inline"
+})
