@@ -1,25 +1,38 @@
-let cardQuestion = document.getElementById("cardQuestion")
-let span = document.createElement("span")
-let nextQuestionButton = document.getElementById("nextQuestion")
-let previousQuestionButton = document.getElementById("previousQuestion")
-let showAnswerButton = document.getElementById("showAnswer")
-let progress = document.querySelector("progress")
+const cardQuestion = document.getElementById("cardQuestion")
+const span = document.createElement("span")
+const nextQuestionButton = document.getElementById("nextQuestion")
+const previousQuestionButton = document.getElementById("previousQuestion")
+const showAnswerButton = document.getElementById("showAnswer")
+const progress = document.querySelector("progress")
 let progressValue = progress.value
 let showAnswer = false 
-let button = document.getElementById("submit")
-let container1 = document.getElementById("container1")
+const button = document.getElementById("submit")
+const container1 = document.getElementById("container1")
 let currentQuestionIndex = 0
-let userQuestionInput = document.getElementById("userQuestionInput")
+const userQuestionInput = document.getElementById("userQuestionInput")
 let addAnswer = true
-let userPTagContainer =document.getElementById("userPTagContainer")
-let pTagTemplate = document.getElementById("pTagTemplate").content
-let accept = document.getElementById("accept")
-let userAnswerAndQuestion = document.getElementById("userAnswerAndQuestion")
-let userQuestionContainer = document.getElementById("userQuestionContainer")
+const userPTagContainer =document.getElementById("userPTagContainer")
+const pTagTemplate = document.getElementById("pTagTemplate").content
+const userQuestionContainer = document.getElementById("userQuestionContainer")
+const accept = document.getElementById("accept")
+const userAnswerAndQuestion = document.getElementById("userAnswerAndQuestion")
+
 
 let object = {}
 
-let cardsData = [{question: 1, answer: 2}]
+let cardsData = []
+
+accept.addEventListener("click", () =>{
+    if (cardsData.length == 0 ){
+        return
+    }
+    else{
+    userAnswerAndQuestion.style.display = "none"
+    userQuestionContainer.style.display = "none"
+    container1.style.display = "inline"
+    }
+
+})
 
 progress.max = cardsData.length
 function cardsLoader(){
@@ -27,6 +40,9 @@ function cardsLoader(){
     progress.value = progressValue
 
     let currentCard = cardsData[currentQuestionIndex]
+    if(cardsData.length == 0){
+        return
+    }
     if (showAnswer){
         span.textContent = currentCard.answer
         showAnswerButton.textContent = "Show question"
@@ -71,9 +87,8 @@ previousQuestionButton.addEventListener("click",function(){
 })
 
 
-cardQuestion.append(span)
-span.textContent = cardsData[currentQuestionIndex].question
 
+progress.max = cardsData.length
 
 
 button.addEventListener("click", () => {
@@ -82,18 +97,36 @@ button.addEventListener("click", () => {
     let userPTAGS = template.querySelector("#userPTags")
     let userQuestion = userPTAGS.querySelector("#userQuestion")
     let userAnswer = userPTAGS.querySelector("#userAnswer")
-    
-    if (addAnswer === false){
+    const remove = userPTAGS.querySelector("#remove")
+
+    if(userQuestionInput.value == ""){
+        alert("Enter in your quiz data!")
+        return
+    }
+    if (addAnswer == false){
         object = {}
         object.question = userQuestionInput.value
+
         userQuestionInput.value = ""
     }
     else{
         object.answer = userQuestionInput.value
+        const thisObject = object
         userQuestionInput.value = ""
         cardsData.push(object)
-        console.log(cardsData.length);
-        progress.max = cardsData.length
+
+
+        
+        cardQuestion.append(span)
+        span.textContent = cardsData[currentQuestionIndex].question
+
+        remove.addEventListener("click", function(){
+            let index = cardsData.indexOf(thisObject)
+            if(index > -1)cardsData.splice(index, 1)
+            userPTAGS.remove()
+            console.log(cardsData);
+            progress.max = cardsData.length
+        })
 
         cardsData.forEach(element => {
             userAnswer.textContent = `Answer:${element.answer}`
@@ -104,8 +137,3 @@ button.addEventListener("click", () => {
     }
 })
 
-accept.addEventListener("click", () =>{
-    userAnswerAndQuestion.style.display = "none"
-    userQuestionContainer.style.display = "none"
-    container1.style.display = "inline"
-})

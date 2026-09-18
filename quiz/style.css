@@ -68,7 +68,8 @@ progress{
     margin-left: 55px;
 }
 
-#userQuestionContainer{
+#userQuestionContainer 
+{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,6 +78,12 @@ progress{
     width: 25%;
     height: 125px;
     min-height: 25%;
+    border-radius: 10px;
+}
+#userQuestionContainer button{
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px;
 }
 
 #userAnswerAndQuestion{
