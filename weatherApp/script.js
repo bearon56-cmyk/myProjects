@@ -12,7 +12,7 @@ let tempFeel;
 async function getWeatherData() {
     try {
         loading.style.visibility = "visible"
-        let url =  `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${userLocation.value}/today?key=K4SKGDNJN3W5H38EB8BDXYJ7F`
+        let url =  `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${userLocation.value}/today?unitGroup=metric&key=K4SKGDNJN3W5H38EB8BDXYJ7F`
         let response = await fetch(url)
 
         if (response.status == 400){
@@ -39,18 +39,18 @@ submit.addEventListener("click", async function(){
         return
     }
     await getWeatherData()
-    if(temperature < 32){
+    if(temperature < 10){
         body.style.backgroundColor = "rgb(0, 119, 190)"
         tempFeel = "cold"
     }
-    else if(temperature < 68){
-        body.style.backgroundColor = "rgb(255, 165, 0)"
+    else if(temperature < 30){
+        body.style.backgroundColor = "rgb(255,114,81)"
         tempFeel = "warm"
     }
-    else if(temperature >= 69){
+    else if(temperature >= 30){
         body.style.backgroundColor = "rgb(255, 69, 0)"
         tempFeel = "hot"
     }
     windSpeedText.textContent = `${windSpeed} MPH`
-    temperatureText.textContent = `${temperature} F, this is ${tempFeel}`
+    temperatureText.textContent = `${temperature} C, this is ${tempFeel}`
 })

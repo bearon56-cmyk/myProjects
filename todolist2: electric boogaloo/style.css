@@ -80,7 +80,7 @@ input{
     text-align: center;
     align-items: stretch;
     width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 20px;
     z-index: 0;
     gap: 10px;
@@ -98,7 +98,7 @@ nav{
     color: black;
     border-radius: 10px;
     height: 40px;
-    min-width: 300px;
+    min-width: 265px;
     max-width: 25%;
 }
 .todosContainer:hover{
