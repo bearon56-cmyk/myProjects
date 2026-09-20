@@ -1,0 +1,20 @@
+{
+  "name": "newweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "myTest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bearon56-cmyk/myProjects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bearon56-cmyk/myProjects/issues"
+  },
+  "homepage": "https://github.com/bearon56-cmyk/myProjects#readme"
+}
