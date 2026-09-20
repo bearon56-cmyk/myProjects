@@ -16,7 +16,7 @@ const pTagTemplate = document.getElementById("pTagTemplate").content
 const userQuestionContainer = document.getElementById("userQuestionContainer")
 const accept = document.getElementById("accept")
 const userAnswerAndQuestion = document.getElementById("userAnswerAndQuestion")
-
+const p = document.querySelector("p")
 
 let object = {}
 
@@ -106,11 +106,13 @@ button.addEventListener("click", () => {
     if (addAnswer == false){
         object = {}
         object.question = userQuestionInput.value
-
+        const p = document.querySelector("p")
+        p.textContent = "Enter your flashcards answer"
         userQuestionInput.value = ""
     }
     else{
         object.answer = userQuestionInput.value
+        p.textContent = "Enter your flashcards question"
         const thisObject = object
         userQuestionInput.value = ""
         cardsData.push(object)
