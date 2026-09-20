@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>proyek-tailwind</title>
+  </head>
+  <body class="w-dvw h-dvh bg-zinc-400">
+
+    <div class="w-full shadow flex items-center justify-center" id="nav">
+
+
+    <nav class="flex-1 flex-col relative container p-5 w-screen">
+
+      <div class="flex items-center justify-between gap-30" id="mainContainer">
+        
+        <div class="flex items-center gap-4" id="logoContainer" >
+
+          <img src="/Heathcliff_Icon.webp" alt="" class="h-14" />
+
+          <div class="flex flex-col">
+            <h2 class="font-bold text-3xl">REMEMBER</h2>
+            <h6 class="text-sm m-0 whitespace-nowrap">Sincerely, Limbus Company</h6>
+          </div>
+
+        </div>
+
+        <div class="hidden md:flex space-x-4 md:pl-20 items-center text-sm">
+          
+          <!---->
+          <a href="#" class="text-nowrap hover:underline decoration-purple-900">About  <span class="text-purple-600 font-semibold">Heathcliff</span></a>
+          <a href="#" class="hover:underline decoration-purple-900 hover:text-white transition duration-500">Product</a>
+          <a href="#" class="hover:underline decoration-purple-900 hover:text-white">Identities</a>
+          <a href="#" class="hover:underline decoration-purple-900 hover:text-white">Careers</a>
+
+        </div>
+
+        <!--hamburger shaped button-->
+        <button id="hamburg" class="md:hidden block sm:left-0 right-5" >
+          <span class="top"></span>
+          <span class="bottom"></span>
+          <span class="middle"></span>
+        </button>
+
+
+      </div>
+      <div class="md:hidden">
+        <div id="menu" 
+              class="hidden absolute left-6 right-6 flex-col 
+                font-extrabold items-center gap-4 
+                z-50 py-10 text-sm mt-10 shadow-lg shadow-black">
+          <a href="#" class="hover:text-white">About</a>
+          <a href="#" class="hover:text-white">Product</a>
+          <a href="#" class="hover:text-white">Identities</a>
+          <a href="#" class="hover:text-white">Careers</a>
+          <a href="#" class="hover:text-white">Company</a>
+        </div>
+      </div>
+
+    </nav>
+</div>
+
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
