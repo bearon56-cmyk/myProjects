@@ -92,7 +92,7 @@ main{
     font-weight: bolder;
     font-size: 2rem;
     background-color: rgb(190, 57, 57);
-    border-bottom: 1px solid black;
+    box-shadow: 0 1px 15px black;
     
 }
 

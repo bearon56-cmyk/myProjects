@@ -1,7 +1,7 @@
 let gameStart = true
 let currentPlayer = "X"
 currentPlayer.id = "currentPlayer"
-const gameTable = [
+let gameTable = [
     "", "", "",
     "", "", "",
     "", "", "",
@@ -23,12 +23,10 @@ let cells = document.querySelectorAll(".cell")
 onStart()
 
 function onStart(){
-
     if(!gameStart){
         return
     }
     cells.forEach(cell => cell.addEventListener("click", cellClick))
-
 }
 
 function cellClick() {
@@ -40,6 +38,7 @@ function cellClick() {
     gameTable[cellIndex] = currentPlayer
     changePlayer()
     checkWin()
+    console.log(gameStart)
 }
 
 
@@ -62,11 +61,12 @@ function checkWin(){
             continue
         }
         if(index1 == index2 && index2 == index3){
-            console.log("You win")
-            break
+            alert("You win")
+            gameStart = false
         }
         else if(!gameTable.includes("") && index1 !== index2 && index2 !== index3){
-            console.log("draw")
+            alert("Draw!")
+            gameStart = false
         }
     }
 }

@@ -18,6 +18,7 @@ form.addEventListener("submit", function(event){
     li.textContent = userInput
     li.appendChild(checkbox)
     ol.append(li)
+    
     checkbox.addEventListener("change", function(){
         doneTodosOl.appendChild(li)
         li.removeChild(checkbox)
