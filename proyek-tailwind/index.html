@@ -12,9 +12,9 @@
     <div class="w-full shadow flex items-center justify-center" id="nav">
 
 
-    <nav class="flex-1 flex-col relative container p-5 w-screen">
+    <nav class="flex-1 flex-col relative md:p-5">
 
-      <div class="flex items-center justify-between gap-30" id="mainContainer">
+      <div class="flex items-center justify-between " id="mainContainer">
         
         <div class="flex items-center gap-4" id="logoContainer" >
 
@@ -38,7 +38,7 @@
         </div>
 
         <!--hamburger shaped button-->
-        <button id="hamburg" class="md:hidden block sm:left-0 right-5" >
+        <button id="hamburg" class="md:hidden block sm:mr-10 sm:left-0 right-5 mt-3" >
           <span class="top"></span>
           <span class="bottom"></span>
           <span class="middle"></span>
@@ -46,9 +46,9 @@
 
 
       </div>
-      <div class="md:hidden">
+      <div class="md:hidden h-dvh w-dvw flex justify-center">
         <div id="menu" 
-              class="hidden absolute left-6 right-6 flex-col 
+              class="hidden absolute flex-col w-sm sm:w-xl
                 font-extrabold items-center gap-4 
                 z-50 py-10 text-sm mt-10 shadow-lg shadow-black">
           <a href="#" class="hover:text-white">About</a>
@@ -60,6 +60,8 @@
       </div>
 
     </nav>
+
+    
 </div>
 
 
