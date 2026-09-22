@@ -1,18 +1,26 @@
+
 @import "tailwindcss";
+
 
 @theme{
 
-    --breakpoint-sm: 480px;
-    --breakpoint-md:668px;
+    --breakpoint-sm: 560px;
+    --breakpoint-md:640px;
     --breakpoint-lg: 976px;
     --breakpoint-xl:1440px;
+
 }
+
+@utility my-responsive-grid{
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
 #hamburg{
     cursor: pointer;
     width: 24px;
     height: 24px;
     position: relative;
-    transition:linear 0.12s;
+    transition:all 0.5s;
 
 }
 
@@ -25,6 +33,7 @@
     position: absolute;
     left: 0;
     top: 0;
+    transition:all 0.25s;
 }
 
 .middle{
@@ -35,13 +44,14 @@
 }
 
 .toX{
-    transform: rotate(90deg) translateY(0px);
+    transform: rotate(720deg) translateY(0px);
+
 }
 .toX .top{
     transform: rotate(45deg) translate(6px, 6px);
 }
 .toX .middle{
-    display: none;
+    transform: scale(0);
 }
 .toX .bottom{
     transform: rotate(-45deg) translate(-6px, 6px);
@@ -49,5 +59,8 @@
 }
 
 #menu{
-    background-color: #acacb4 ;
+    background-color: #c1c1c5 ;
+}
+#hamburg.toX span{
+    background-color: rgb(148, 64, 64);
 }
