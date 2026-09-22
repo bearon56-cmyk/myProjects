@@ -45,7 +45,6 @@
 
 .toX{
     transform: rotate(720deg) translateY(0px);
-
 }
 .toX .top{
     transform: rotate(45deg) translate(6px, 6px);

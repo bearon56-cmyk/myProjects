@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>proyek-tailwind</title>
   </head>
-  <body class="w-dvw h-dvh bg-gray-400 overflow-scroll">
+  <body class="w-dvw h-dvh bg-gray-400 overflow-scroll font-mono">
 
-    <header class="flex-1 flex-col relative p-5 shadow-xl w-full flex ">
+    <header class="flex-1 flex-col p-5 shadow-xl w-full flex ">
 
       <div class="flex items-center justify-between" id="mainContainer">
         
@@ -58,19 +58,33 @@
 
     </header>
 
-      <div class="h-full w-full flex justify-center" id="folk">
-        <h1 class=" font-semibold absolute  whitespace-nowrap tracking-tighter
-          max-[850px]:text-7xl z-3 self-center text-amber-900 text-5xl md:tracking-wider md:text-8xl">E R L K I N G</h1>
+      <div class="w-auto flex justify-center relative" id="folk">
+        <h1 class=" font-semibold absolute whitespace-nowrap tracking-tighter
+          min-[775px]:text-8xl z-3 py-50 text-amber-900 text-5xl md:tracking-wide md:text-7xl">E R L K I N G</h1>
           <p class="absolute">“What a sorry ending to this tale, is it not?”</p>
-        <img src="/648px-Erlking_Heathcliff_StandingSprite-removebg-preview.png" alt="background" class="h-128 object-contain w-70 z-2 mt-8 ml-10 md:ml-1">    
+        <img src="/648px-Erlking_Heathcliff_StandingSprite-removebg-preview.png" alt="" class="h-128 w-70 mt-8 ml-10 md:ml-1">    
       </div>
 
     <!-- grid-cols-1 sm:grid-cols-2 md:grid-cols-3  -->
-    <!-- <div class="grid my-responsive-grid w-dvw place-items-center justify-items-center ">
-      <div class="bg-black border border-white w-full h-10"></div>
-      <div class="bg-black border border-white w-full h-10"></div>
-      <div class="bg-black border border-white w-full h-10"></div>
-    </div> -->
+    <div class="grid my-responsive-grid w-dvw">
+      <!-- Heathcardo -->
+      <div class=" w-full h-100 flex items-center flex-col justify-center">
+        <p class="relative self-start px-20"></p>
+        <img src="/ricardoCliff-removebg-preview.png" class="w-40 h-50" alt="">
+        <h1 class="text-purple-950 text-2xl font-bold">The Big Brother</h1>
+      </div>
+      <!-- Thumbcliff -->
+      <div class=" w-full h-100 flex items-center flex-col justify-center">
+        <img src="/thumbheath-removebg-preview.png" class="w-40 h-50" alt="">
+        <h1 class="text-red-800 text-2xl font-bold">The Apprentice</h1>
+      </div>
+      <!-- Wildhunt -->
+      <div class=" w-full h-100 flex items-center flex-col justify-center">
+        <img src="/Wild_Hunt.webp" class="w-80 h-50 mr-20" alt="">
+        <h1 class="text-amber-900  text-2xl font-bold">Wild Hunt</h1>
+      </div>
+
+    </div>
 
     <script type="module" src="/src/main.js"></script>
   </body>

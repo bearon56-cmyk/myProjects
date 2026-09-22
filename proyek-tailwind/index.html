@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scrollbar-none">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>proyek-tailwind</title>
   </head>
-  <body class="w-dvw h-dvh bg-gray-400 overflow-scroll">
+  <body class="w-dvw h-dvh bg-gray-400">
 
-    <header class="flex-1 flex-col relative p-5 shadow-xl w-full flex ">
+    <header class="flex-1 flex-col p-5 shadow-xl w-full flex ">
 
       <div class="flex items-center justify-between" id="mainContainer">
         
@@ -43,11 +43,12 @@
 
 
       </div>
-      <div class="md:hidden flex justify-center">
+
+      <div class="md:hidden flex justify-center ">
         <div id="menu" 
               class="hidden absolute flex-col w-sm sm:w-xl
-                font-extrabold items-center gap-4 
-                z-50 py-10 text-sm mt-10 shadow-lg shadow-black">
+                font-extrabold items-center gap-4 z-50
+                py-10 text-sm mt-10 shadow-lg shadow-black">
           <a href="./index.html" class="hover:text-white">About</a>
           <a href="#" class="hover:text-white">Product</a>
           <a href="/src/identities.html" class="hover:text-white">Identities</a>
@@ -58,23 +59,18 @@
 
     </header>
 
-      <div class="h-full w-full flex justify-center" id="folk">
-        <!--Big text for big screen -->
-        <h1 class=" font-semibold absolute whitespace-nowrap 
-           z-3 py-50 text-7xl text-purple-900 tracking-tighter 
-          md:tracking-wider md:text-9xl max-[890px]:text-8xl">H E A T H</h1>
-        <!--small text for small screen  -->
+      <div class="relative flex justify-center " id="folk">
+        <!--Character's name -->
+        <h1 class="font-semibold absolute whitespace-nowrap 
+          py-50 text-7xl text-purple-900 tracking-tighter 
+          md:tracking-wider md:text-9xl max-[890px]:text-8xl ">H E A T H</h1>
         <!-- Quote -->
           <p class="absolute my-10">"I have not broken your heart - YOU have; and in breaking it, you have broken mine."</p>
         <!--Sprite Image  -->
-          <img src="/Heathcliff_Remember_Sprite_8.png" alt="background" class="h-128 mb-50 md:mb-0 object-contain w-80 z-2 mt-8 ml-10 md:ml-1">    
+          <img src="/Heathcliff_Remember_Sprite_8.png" alt="" class="h-128 mb-50 md:mb-0 object-contain w-80 mt-8 ml-10 md:ml-1">    
       </div>
-    <!-- grid-cols-1 sm:grid-cols-2 md:grid-cols-3  -->
-    <!-- <div class="grid my-responsive-grid w-dvw place-items-center justify-items-center ">
-      <div class="bg-black border border-white w-full h-10"></div>
-      <div class="bg-black border border-white w-full h-10"></div>
-      <div class="bg-black border border-white w-full h-10"></div>
-    </div> -->
+
+    
 
     <script type="module" src="/src/main.js"></script>
   </body>
