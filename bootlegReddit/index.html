@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bootlegreddit</title>
   </head>
-  <body class="h-dvh w-dvw flex text-white">
+  <body class="h-dvh w-dvw flex text-white flex-col">
     <!-- Header -->
-     <header class="w-dvw h-15 border-b border-gray-900 flex justify-between items-center gap-7 ">
+     <header class="w-dvw h-15 border-b border-gray-900 flex justify-center items-center gap-4 ">
       <!-- Burger menu -->
       <button type="button" class="md:hidden flex flex-col hover:bg-gray-500 rounded-full px-10" id="hamburgerMenu">
         <span class="top"></span>
@@ -24,7 +24,7 @@
       <!-- Search bar -->
       <div class="w-dvw flex">
         <input type="text" class="w-full border border-black pl-8 rounded-4xl py-2 text-sm" placeholder="Search Reddit">
-        <img src="/reddit.png" alt="" class="absolute h-5 w-4 top-4.5 ml-2 pt-1 ">
+        <img src="/reddit.png" alt="" class="absolute h-5 w-4 top-4 pt-1 ml-2 ">
 
       </div>
 
@@ -38,7 +38,6 @@
                        block hover:cursor-pointer 
                        hover:bg-orange-500">Log in</button>
       </div>
-
        <!-- Settings -->
       <button type="button" id="setting"
               class="mr-5 hover:cursor-pointer hover:bg-gray-500 rounded-4xl
@@ -47,12 +46,44 @@
         <span class="w-1 h-1 rounded-full bg-white"></span>
         <span class="w-1 h-1 rounded-full bg-white"></span>
       </button>
+      </header>
 
-     <!-- Left nav -->
-     <nav>
 
-     </nav>
 
+      
+      <!-- grid container -->
+      <div class="w-full h-full grid lg:grid-cols-[300px_minmax(200px,1fr)_300px] 
+                  md:grid-cols-[minmax(200px,1fr)_300px] grid-cols-1">
+      <!-- Left nav -->
+      <nav class="w-full border lg:flex hidden items-center justify-center">
+        <!-- login container -->
+        <div class="w-[90%] h-[90%] border flex flex-col items-center pt-5 text-xl font-bold border-black rounded-4xl bg-black">
+          <h1>Join the most real</h1>
+          <h1 class="pb-8">place on the internet</h1>
+          
+          <button class="text-sm border w-[90%] rounded-full h-10 
+                      bg-black hover:bg-gray-600 hover:cursor-pointer mb-5">Continue with Google</button>
+          <button class="text-sm border w-[90%] rounded-full h-10 
+                      bg-black hover:bg-gray-600 hover:cursor-pointer mb-5">Continue with Apple</button>
+          <button class="text-sm border w-[90%] rounded-full h-10 
+                      bg-black hover:bg-gray-600 hover:cursor-pointer">Continue with Email</button>
+
+          <p class="text-xs text-center text-gray-600">By continuing, you agree to our <a href="#" class="text-blue-500">User Agreement</a> and acknowledge that you understand the <a href="#" class="text-blue-500">Privacy Policy.</a></p>
+
+        </div>
+      </nav>
+
+      <!-- Main content -->
+
+      <main class="w-full border">
+
+      </main>
+
+      <!-- Right nav -->
+      <nav class="w-full border md:flex hidden">
+
+      </nav>
+     </div>
 
 
     <script type="module" src="/src/main.js"></script>
