@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bootlegreddit</title>
+  </head>
+  <body class="h-dvh w-dvw flex text-white">
+    <!-- Header -->
+     <header class="w-dvw h-15 border-b border-gray-900 flex justify-between items-center gap-7 ">
+      <!-- Burger menu -->
+      <button type="button" class="md:hidden flex flex-col hover:bg-gray-500 rounded-full px-10" id="hamburgerMenu">
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
+      </button>
+
+      <!-- Reddit -->
+      <a href="#" class="pl-5 lg:pr-60 pr-0 font-extrabold text-2xl hidden md:block">reddit</a>
+
+
+      <!-- Search bar -->
+      <div class="w-dvw flex">
+        <input type="text" class="w-full border border-black pl-8 rounded-4xl py-2 text-sm" placeholder="Search Reddit">
+        <img src="/reddit.png" alt="" class="absolute h-5 w-4 top-4.5 ml-2 pt-1 ">
+
+      </div>
+
+      <!-- Log and sign -->
+      <div class="flex whitespace-nowrap gap-5 text-sm font-bold">
+        <button class="bg-gray-700 rounded-4xl 
+                      p-2.5 ml-20 md:block hidden hover:cursor-pointer 
+                      hover:bg-gray-400" >Sign up</button>
+
+        <button class=" bg-orange-700 rounded-4xl p-2.5
+                       block hover:cursor-pointer 
+                       hover:bg-orange-500">Log in</button>
+      </div>
+
+       <!-- Settings -->
+      <button type="button" id="setting"
+              class="mr-5 hover:cursor-pointer hover:bg-gray-500 rounded-4xl
+                    flex justify-center items-center gap-1 px-2 h-9">
+        <span class="w-1 h-1 rounded-full bg-white"></span>
+        <span class="w-1 h-1 rounded-full bg-white"></span>
+        <span class="w-1 h-1 rounded-full bg-white"></span>
+      </button>
+
+     <!-- Left nav -->
+     <nav>
+
+     </nav>
+
+
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
