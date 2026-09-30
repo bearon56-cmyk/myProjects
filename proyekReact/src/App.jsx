@@ -1,38 +1,57 @@
 import { useState } from "react";
+import Box from "./Box";
+import Form from "./Form";
 
 function App() {
-  let [form, setForm] = useState({name: "", email: ""});
-  let [addP, setP] = useState([]);
+  let [todos, setTodos] = useState({title: ""});
+  let [addBox, setBox] = useState([]);
+
+  
   function onChange(e) {
     let {name, value} = e.target
+    setTodos({...todos, [name] : value})
 
-    setForm({...form, [name] : value})
-  }
-  function onParagraphClick(element){
-    console.log(element)
     
   }
+  function onTodosClick(element, index){
+    console.log(element)
+    console.log(index)
+    console.log(addBox[index])
+  }
 
 
+  function deleteBox(indexPassed){
+    setBox(addBox.filter((element, index)=> index !== indexPassed))
+  }
 
   function onClick() {
-    if (form.name == "" || form.email ==""){
+    if (todos.title == ""){
       alert("enter something")
       return
     }
-    setP([...addP, form]);
-    setForm({name: "", email: ""})
+    setBox([...addBox, todos]);
+    setTodos({title: ""})
   }
 
   return (
     <>
-      <input name="name" type="text" value={form.name} onChange={onChange} />
-      <input name="email" type="text" value={form.email} onChange={onChange} />
-      <button onClick={onClick}>Submit</button>
+      <header className="flex font-bold w-full h-10 bg-blue-200 items-center text-lg gap-2 pl-3">
+      <img src="./disk2.webp" alt="" className="size-8"/>My Todo List</header>
 
-      {addP.map((element, index)=>{
-        return <p onClick={()=>onParagraphClick(element)} key={index}>{element.name}, {element.email}</p>
-      })}
+      {/* Main container */}
+      <div className="w-[90%] h-[80%] self-center justify-self-center mt-2 overflow-scroll scrollbar-none">
+        <Form onchange={onChange} todos={todos} onclick={onClick} ></Form>
+        
+
+        <div className="my-responsive-grid grid w-full">
+          <p className="pl-5 font-extrabold">Task: {addBox.length}</p>
+          {addBox.map((element, index)=>{
+            return <Box onclick={()=> onTodosClick(element, index)}
+                    element={element} key={index} onbuttonclick={()=>deleteBox(index)}></Box>
+          })}
+        </div>
+        
+      </div>
     </>
   );
 }
