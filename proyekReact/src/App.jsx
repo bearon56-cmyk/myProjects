@@ -3,6 +3,8 @@ import Box from "./Box";
 import Form from "./Form";
 
 function App() {
+  let [editState, setEditState] = useState(null)
+  let [editValue, setEditValue] = useState("")
   let [todos, setTodos] = useState({title: ""});
   let [addBox, setBox] = useState([]);
 
@@ -10,13 +12,36 @@ function App() {
   function onChange(e) {
     let {name, value} = e.target
     setTodos({...todos, [name] : value})
-
-    
   }
+
+  function onEditChange(e) {
+    let {name, value} = e.target
+    setEditValue(value)
+  }
+
+
+  function oneditclick(indexPassed){
+    if(indexPassed === editState){
+      setEditState(null)
+      return
+    }
+    setEditValue(addBox[indexPassed].title)
+    setEditState(indexPassed)
+  }
+
+  function onsubmitclick(){
+
+    setBox(addBox.map((element, index)=>{
+      if(index === editState){
+        setEditState(null)
+        return {...element, title : editValue}
+      }
+      return element
+    }))
+  }
+
   function onTodosClick(element, index){
-    console.log(element)
-    console.log(index)
-    console.log(addBox[index])
+
   }
 
 
@@ -46,8 +71,17 @@ function App() {
         <div className="my-responsive-grid grid w-full">
           <p className="pl-5 font-extrabold">Task: {addBox.length}</p>
           {addBox.map((element, index)=>{
-            return <Box onclick={()=> onTodosClick(element, index)}
-                    element={element} key={index} onbuttonclick={()=>deleteBox(index)}></Box>
+            return <Box 
+            onclick={()=> onTodosClick(element, index)}
+            element={element} 
+            key={index} 
+            onbuttonclick={()=>deleteBox(index)}
+            oneditclick={()=>oneditclick(index)}
+            edit={index === editState}
+            onsubmitclick={onsubmitclick}
+            onchange={onEditChange}
+            editValue={editValue}>
+            </Box>
           })}
         </div>
         
