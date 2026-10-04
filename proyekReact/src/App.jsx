@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Box from "./Box";
 import Form from "./Form";
+import { prescripts } from "./Prescripts";
 
 function App() {
   let [editState, setEditState] = useState(null)
@@ -8,16 +9,20 @@ function App() {
   let [todos, setTodos] = useState("");
   let [addBox, setBox] = useState([]);
 
+  function randomprescript(){
+    let rand = Math.floor(Math.random() * prescripts.length)
+    setBox([...addBox, prescripts[rand]])
+  }
   
   function onChange(e) {
     let {name, value} = e.target
     setTodos(value)
-    console.log(addBox)
   }
 
   function onEditChange(e) {
     let {name, value} = e.target
     setEditValue(value)
+    console.log(editValue)
   }
 
 
@@ -32,19 +37,21 @@ function App() {
   }
 
   function onsubmitclick(){
-
     setBox(addBox.map((element, index)=>{
       if(index === editState){
         setEditState(null)
         console.log(element)
-        return [element, editValue]
+        element = ""
+
+        return [...element, editValue]
       }
       return element
     }))
+
   }
 
   function onTodosClick(element, index){
-
+    
   }
 
 
@@ -68,7 +75,7 @@ function App() {
 
       {/* Main container */}
       <div className="w-[90%] h-[80%] self-center justify-self-center mt-2 overflow-scroll scrollbar-none">
-        <Form onchange={onChange} todos={todos} onclick={onClick} ></Form>
+        <Form randomprescript={randomprescript} onchange={onChange} todos={todos} onclick={onClick}></Form>
         
 
         <div className="my-responsive-grid grid w-full">
