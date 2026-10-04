@@ -5,13 +5,14 @@ import Form from "./Form";
 function App() {
   let [editState, setEditState] = useState(null)
   let [editValue, setEditValue] = useState("")
-  let [todos, setTodos] = useState({title: ""});
+  let [todos, setTodos] = useState("");
   let [addBox, setBox] = useState([]);
 
   
   function onChange(e) {
     let {name, value} = e.target
-    setTodos({...todos, [name] : value})
+    setTodos(value)
+    console.log(addBox)
   }
 
   function onEditChange(e) {
@@ -25,7 +26,8 @@ function App() {
       setEditState(null)
       return
     }
-    setEditValue(addBox[indexPassed].title)
+    setEditValue(addBox[indexPassed])
+
     setEditState(indexPassed)
   }
 
@@ -34,7 +36,8 @@ function App() {
     setBox(addBox.map((element, index)=>{
       if(index === editState){
         setEditState(null)
-        return {...element, title : editValue}
+        console.log(element)
+        return [element, editValue]
       }
       return element
     }))
@@ -50,12 +53,12 @@ function App() {
   }
 
   function onClick() {
-    if (todos.title == ""){
+    if (todos == ""){
       alert("enter something")
       return
     }
     setBox([...addBox, todos]);
-    setTodos({title: ""})
+    setTodos("")
   }
 
   return (

@@ -1,0 +1,11 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+
+@layer base{
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+}
