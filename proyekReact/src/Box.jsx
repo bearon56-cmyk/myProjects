@@ -4,7 +4,7 @@ function Box({ onclick, element, onbuttonclick,oneditclick, onsubmitclick, oncha
       return (
     <div className="flex bg-green-500 p-3 break-all rounded-2xl border"
       onClick={onclick}>
-      <input type="text" name="title" onChange={onchange} className="flex-1" value={editValue}/>
+      <input type="text" name="title" onChange={onchange} className="text-pretty flex-1" value={editValue}/>
       <button className="h-10 w-auto self-end justify-self-end" onClick={onsubmitclick}>Submit</button>      
       <button className="h-10 w-auto self-end justify-self-end" onClick={oneditclick}>
         <img className="w-6" src="./pen.png" alt="" />

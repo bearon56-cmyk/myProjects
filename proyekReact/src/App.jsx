@@ -22,7 +22,7 @@ function App() {
   function onEditChange(e) {
     let {name, value} = e.target
     setEditValue(value)
-    console.log(editValue)
+
   }
 
 
@@ -38,13 +38,13 @@ function App() {
 
   function onsubmitclick(){
     setBox(addBox.map((element, index)=>{
+
       if(index === editState){
         setEditState(null)
         console.log(element)
-        element = ""
-
-        return [...element, editValue]
+        return editValue
       }
+
       return element
     }))
 

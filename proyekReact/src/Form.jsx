@@ -13,7 +13,8 @@ function Form({onchange, todos, onclick, randomprescript}) {
                                hover:cursor-pointer rounded-sm border-2 border-black 
                                active:text-white hover:bg-blue-500" 
                     onClick={onclick}>Add</button>
-            <button className="h-10 w-15 bg-blue-300 border-black border-2 rounded-sm "
+            <button className="h-10 w-15 bg-blue-300 border-black border-2 
+                                rounded-sm hover:cursor-pointer hover:bg-blue-200 active:text-white"
             onClick={randomprescript}>Cant Think?</button>
         </div>
         
