@@ -1,0 +1,22 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+
+@layer base{*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}}
+
+@theme{
+
+    --breakpoint-sm: 560px;
+    --breakpoint-md:640px;
+    --breakpoint-lg: 976px;
+    --breakpoint-xl:1440px;
+
+}
+
+@utility my-responsive-grid{
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
