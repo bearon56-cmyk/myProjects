@@ -20,3 +20,13 @@
 @utility my-responsive-grid{
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
+
+#movieCard{
+    flex: 0 0 8em;
+}
+
+#carousel::scroll-button(right){
+    content: "->";
+    height: 60px;
+    width: 60px;
+}
