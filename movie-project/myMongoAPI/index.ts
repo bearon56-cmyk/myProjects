@@ -1,11 +1,10 @@
-import express, { json } from 'express';
-import cors from 'cors';
+import type { HeadersInit } from 'bun';
+import type { CorsOptions } from 'cors';
+import { json, response } from 'express';
 import { Collection, Db, MongoClient, type Document } from 'mongodb';
-let db_url = Bun.env.database_url || "mongodb://127.0.0.1:27017/myDatabase"
+let db_url = "mongodb://127.0.0.1:27017"
 let PORT = Bun.env.PORT || "3000"
-const app = express()
 const client = new MongoClient(db_url)
-app.use(cors())
 let data : Document[] = [];
 let moviesPopular : Document[] = [];
 
@@ -27,23 +26,31 @@ async function connectDB() {
 }
 
 await connectDB()
+const resHeaders = { headers: { "Access-Control-Allow-Origin": "*" } };
 
-app.get("/api/movies", async (req , res)=>{
-    try {
-        res.json(data)
-    } catch (error) {
-        return res.status(500).json("FAIL")
+Bun.serve({
+    port: 3000,
+    routes:{
+        
+        '/api/movies' : ()=>{
+            return Response.json(data, resHeaders)
+        },
+        '/api/moviesPopular': ()=>{
+            return Response.json(moviesPopular, resHeaders)
+        }
+
+    },
+    async fetch(req,server){
+        
+        const url = new URL(req.url)
+        server.upgrade(req)
+        return new Response('FAILED',{status: 404})    
+    }, websocket: {
+        async message(ws, message){
+            const data = JSON.parse(message.toString())
+            console.log(data)
+        }
     }
 })
 
-app.get("/api/moviesPopular", async (req , res)=>{
-    try {
-        res.json(moviesPopular)
-    } catch (error) {
-        return res.status(500).json("FAIL")
-    }
-})
-
-app.listen(PORT, ()=>{
-    console.log("LISTENED", PORT, db_url)
-})
+console.log("listening")
