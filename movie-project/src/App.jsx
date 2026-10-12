@@ -10,32 +10,50 @@ function App() {
 
     async function fetchMovie() {
     try {
-      const response = await fetch("http://localhost:3000/api/movies")
-      const response2 = await fetch("http://localhost:3000/api/moviesPopular")
-      const data = await response.json()
-      const data2 = await response2.json()
-      setMovies(data)
-      setMoviesPopular(data2)
+      const moviesResponse = await fetch("http://localhost:3000/api/movies")
+      const moviesPopularResponse = await fetch("http://localhost:3000/api/moviesPopular")
+      const moviesJson = await moviesResponse.json()
+      const moviesPopularJson = await moviesPopularResponse.json()
+      setMovies(moviesJson)
+      setMoviesPopular(moviesPopularJson)
+
       
-      const socket = new WebSocket('ws://localhost:3000')
-      socketRef.current = socket
     } catch (error) {
       console.error(error)
     }
   }
 
   useEffect(()=>{
+    const controller = new AbortController
+    const {signal} = controller
+
     fetchMovie()
-    const socket = socketRef.current
+
+    socketRef.current = new WebSocket('ws://localhost:3000')
+    return ()=>{
+      controller.abort()
+    }
   }, [])
 
-  function onclick(idPassed){
+  async function onclick(idPassed){
+    let newVoteCount = movies[idPassed].vote_count + 1
+
     const request = {
       action: "CHANGE VOTE",
-      vote_count : movies[idPassed].vote_count + 1,
-      id: movies[idPassed].id
+      vote_countPassed : newVoteCount,
+      id: movies[idPassed]._id
     }
+    // Request sending
     socketRef.current.send(JSON.stringify(request))
+
+    // Edit vote_count
+    setMovies(movies.map((movie, index) => {
+    if (index === idPassed) {
+      return { ...movie, vote_count: newVoteCount }
+    }
+    return movie
+  }))
+    
   }
 
   return (

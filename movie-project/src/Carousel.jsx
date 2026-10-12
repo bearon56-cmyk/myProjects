@@ -7,8 +7,10 @@ export function Carousel({
 }) {
   const carouselRef = useRef(null)
   const [movies, setMovies] = useState([])
+  let hasShuffledRef = useRef(false)
 
     useEffect(()=>{
+      if(movies && moviesProps.length > 0 && !hasShuffledRef.current){
       let newArray = [...moviesProps]
       function shuffle(array){
         for (let i = array.length - 1; i > 0; i--) {
@@ -19,10 +21,15 @@ export function Carousel({
         return array
       }
 
+
     const result = shuffle(newArray)
     setMovies(result)
+    hasShuffledRef.current = true
+  }
+      else if(hasShuffledRef.current && movies < 0){
+        setMovies(moviesProps)
+}
     }, [moviesProps])
-
 
 
     function onNextClick(){
