@@ -1,3 +1,13 @@
+# movie-project
+
+My personal training project made to show movies taken from my MongoDB server, just do bun run at index.ts and it should work just fine
+From this i learned:
+-Basics of MongoDB (but not too fluent in it)
+-Bun Serve
+-UseEffect
+-UseRef
+-Websockets
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
