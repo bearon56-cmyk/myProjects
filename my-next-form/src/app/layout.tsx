@@ -14,7 +14,7 @@ const jetBrains = Poppins({
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className="h-full">
-      <body className={`${jetBrains.className} min-h-dvh flex flex-col w-dvw items-center justify-center bg-light-gray`}>{children}</body>
+      <body className={`${jetBrains.className} min-h-dvh grid w-dvw bg-light-gray`}>{children}</body>
     </html>
   );
 }
