@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Next-Project",
@@ -13,8 +16,8 @@ const jetBrains = Poppins({
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="h-full">
-      <body className={`${jetBrains.className} min-h-dvh grid w-dvw bg-light-gray`}>{children}</body>
+    <html lang="en" className={cn("h-full", "font-sans", inter.variable)}>
+      <body className={`${jetBrains.className} min-h-dvh flex items-center justify-center w-dvw bg-light-gray`}>{children}</body>
     </html>
   );
 }
