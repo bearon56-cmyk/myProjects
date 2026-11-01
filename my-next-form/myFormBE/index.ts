@@ -120,9 +120,6 @@ Bun.serve({
                                                         age = ${age},
                                                         address = ${address},
                                                         step = 2 WHERE user_id = ${id}`;
-            if(query.length === 0){
-              return createResponse("Column not found", 400)
-            }
             return createResponse("Query successful", 200);             
             } catch (error) {
               if(error instanceof Error){

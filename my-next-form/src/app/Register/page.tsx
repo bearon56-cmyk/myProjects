@@ -12,8 +12,6 @@ interface fieldsProp{
     label : string
 }
 
-
-
 export default function Register() {
   const router = useRouter()
   const signupFields : fieldsProp[] = [
@@ -23,9 +21,9 @@ export default function Register() {
   ]
 
   const signUpSchema = z.object({
-    username : z.string("Username must be 8 characters long").min(8),
+    username : z.string("Username must be 8 characters long"),
     email : z.email("Enter a valid email"),
-    password : z.string("Password must be 8 characters long").min(8),
+    password : z.string("Password must be 8 characters long"),
   })
 
   async function onsubmit(values : FieldValues) {
@@ -36,7 +34,7 @@ export default function Register() {
           headers : {"Content-Type" : "application/json"}
         })
       const data = await response.json()
-      console.log(data)
+      router.push(`/FormPage?id=${data.id}`)
     } catch (error) {
       console.error(error)
     }
