@@ -4,7 +4,7 @@ import { HTMLInputTypeAttribute, Suspense, useEffect, useState } from "react"
 import Form from  "@/Components/Form"
 import { FieldValues } from "react-hook-form"
 import z from "zod"
-function FormContent(){
+async function FormContent(){
     const [steps, setSteps] = useState(null)
 
     interface fieldsProp{
@@ -41,6 +41,12 @@ function FormContent(){
             console.log(data[0])
         })()
     }, [idParams])
+
+    if(steps === null){
+        return(
+            <p>Loading...</p>
+        )
+    }
 
     return(
         <>

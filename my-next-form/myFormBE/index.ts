@@ -118,7 +118,8 @@ Bun.serve({
             console.log(id)
             const query = await sql`UPDATE "formDB" SET full_name = ${full_name}, 
                                                         age = ${age},
-                                                        address = ${address} WHERE user_id = ${id}`;
+                                                        address = ${address},
+                                                        step = 2 WHERE user_id = ${id}`;
             if(query.length === 0){
               return createResponse("Column not found", 400)
             }
@@ -132,6 +133,21 @@ Bun.serve({
 
           }
          // Update step 2
+         else if(reqType === "Update step 2"){
+            try {
+            const {birthdate, country, gender} = data
+            console.log(id)
+            const query = await sql`UPDATE "formDB" SET birthdate = ${birthdate}, 
+                                                        gender = ${gender},
+                                                        country = ${country} WHERE user_id = ${id}`;
+            return createResponse("Query successful", 200);             
+            } catch (error) {
+              if(error instanceof Error){
+                return createResponse(error.message, 500)
+              }
+              return createResponse("Unknown error", 500)
+            }
+         }
           return createResponse("Success", 200)
         } catch (error) {
           if (error instanceof Error) {
