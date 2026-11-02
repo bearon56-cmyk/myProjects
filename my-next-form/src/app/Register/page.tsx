@@ -44,7 +44,7 @@ export default function Register() {
     <div id="bg-page" className="w-[75%] justify-self-center items-center min-h-dvh shadow-[0px_0px_60px_10px_black] flex flex-row-reverse">
       <div className="w-[50%] h-full flex  flex-col justify-center">
         <h1 className="text-3xl text-white">Create an account</h1>
-        <Form fields={signupFields} onSubmit={onsubmit} schema={signUpSchema}></Form>
+        <Form fields={signupFields} onSubmit={onsubmit} schema={signUpSchema} buttonText="Sign in"></Form>
         <Link href="/Login" className="underline text-violet-500">Already have an account?</Link>
       </div>
 

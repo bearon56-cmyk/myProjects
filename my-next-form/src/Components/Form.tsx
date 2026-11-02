@@ -10,13 +10,13 @@ interface fieldsProp{
     label : string
 }
 
-
-
 export default function Form({
     fields,
     schema,
     onSubmit,
-} : {fields : fieldsProp[], onSubmit : SubmitHandler<FieldValues>, schema : z.ZodType<FieldValues, FieldValues>}){
+    buttonText
+
+} : {fields : fieldsProp[], onSubmit : SubmitHandler<FieldValues>, schema : z.ZodType<FieldValues, FieldValues>, buttonText : string}){
     const {handleSubmit, register, formState : {errors}} = useForm({
         resolver: zodResolver(schema)
     })

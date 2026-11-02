@@ -58,12 +58,12 @@ function FormContent(){
     }
         async function onsubmitstep2(values : FieldValues){
         const {birthdate, gender, country} = values
-        
+        const formattedDate = new Date(birthdate).toLocaleDateString('en-US')
         try {
             const response = await fetch("http://localhost:3001/api/form", {
                 method : "POST",
                 headers : {"Content-Type" : "application/json"},
-                body : JSON.stringify({reqType : "Update step 2",birthdate : birthdate, 
+                body : JSON.stringify({reqType : "Update step 2", birthdate : formattedDate, 
                                                                 gender : gender, 
                                                                 country : country,
                                                                 id : idParams}),
@@ -91,8 +91,10 @@ function FormContent(){
     }
     return(
         <>
-            {steps === 1 && (<Form fields={signupFieldsStep1} onSubmit={onsubmitstep1} schema={formSchemaStep1}></Form>)}
-            {steps === 2 && (<Form fields={signupFieldsStep2} onSubmit={onsubmitstep2} schema={formSchemaStep2}></Form>)}
+            {steps === 1 && (<Form fields={signupFieldsStep1} onSubmit={onsubmitstep1} 
+                                   schema={formSchemaStep1} buttonText="Next"></Form>)}
+            {steps === 2 && (<Form fields={signupFieldsStep2} onSubmit={onsubmitstep2} 
+                                   schema={formSchemaStep2} buttonText="Submit?"></Form>)}
         </>
     )
 }

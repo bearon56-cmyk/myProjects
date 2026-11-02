@@ -63,6 +63,7 @@ Bun.serve({
           const { email, username, password } = data;
           const DBcheck =
             await sql`SELECT * FROM "userDB" WHERE email = ${email} AND username = ${username};`;
+          console.log(DBcheck)
           if (!DBcheck || DBcheck.length === 0) {
             console.log(1);
             return createResponse(JSON.stringify({ message: "Email or password not found" }),400,);
@@ -83,8 +84,7 @@ Bun.serve({
             JSON.stringify({
               message: "Login successful",
               id: DBcheck[0].id,
-              userSubmitted: DBcheck[0].userSubmitted,
-              steps: DBcheck[0].steps,
+              has_submitted: DBcheck[0].has_submitted,
             }),
             { status: 200, headers: myHeaders },
           );
@@ -137,6 +137,7 @@ Bun.serve({
             const query = await sql`UPDATE "formDB" SET birthdate = ${birthdate}, 
                                                         gender = ${gender},
                                                         country = ${country} WHERE user_id = ${id}`;
+            const userQuery = await sql`UPDATE "userDB" SET has_submitted = true WHERE id = ${id}`
             return createResponse("Query successful", 200);             
             } catch (error) {
               if(error instanceof Error){
